@@ -2,7 +2,7 @@ const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../db/connection');
 const { hash, compare } = require('bcrypt');
 
-const Recipe = require('./Recipe');
+const Blog = require('./Blog');
 
 class User extends Model {
     toJSON() {
@@ -87,7 +87,7 @@ User.init(
 
 );
 // Define the association
-User.hasMany(Recipe, { foreignKey: 'userId' });
-Recipe.belongsTo(User, { foreignKey: 'userId' });
+User.hasMany(Blog, { foreignKey: 'userId' });
+Blog.belongsTo(User, { foreignKey: 'userId' });
 
 module.exports = User;
